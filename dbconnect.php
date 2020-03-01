@@ -3,7 +3,7 @@
 try {
 
   $pdo = new PDO(
-    'mysql:dbname=kakeibo;host=localhost;charset=utf8mb4',
+    'mysql:dbname=YOUR_DB_NAME;host=localhost;charset=utf8mb4',
     'root',
     '',
     [

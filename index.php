@@ -1,15 +1,3 @@
-<?php
-include_once('./dbconnect.php');
-
-$sql = "SELECT * FROM records";
-$stmt = $pdo->prepare($sql);
-
-$stmt->execute();
-
-$records = $stmt->fetchAll();
-
-
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -55,18 +43,49 @@ $records = $stmt->fetchAll();
             </thead>
 
             <tbody>
-              <?php foreach($records as $record): ?>
-                <tr>
-                  <td class="col-2"><?= $record['date'] ?></td>
-                  <td class="col-3"><?= $record['title'] ?></td>
-                  <td class="col-2"><?= $record['type'] == 0 ? $record['amount'] : ''; ?></td>
-                  <td class="col-2"><?= $record['type'] == 1 ? $record['amount'] : ''; ?></td>
-                  <td class="col-3">
-                    <a href="./editForm.php?id=<?= $record['id']; ?>" class="btn btn-success text-light">編集</a>
-                    <a href="./delete.php?id=<?= $record['id']; ?>" class="btn btn-danger text-light">削除</a>
-                  </td>
-                </tr>
-              <?php endforeach; ?>
+              <tr>
+                <td class="col-2">2020/1/1</td>
+                <td class="col-3">昼ごはん</td>
+                <td class="col-2"></td>
+                <td class="col-2">800</td>
+                <td class="col-3">
+                  <a href="./editForm.php" class="btn btn-success text-light">編集</a>
+                  <a href="./delete.php" class="btn btn-danger text-light">削除</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="col-2">2020/1/1</td>
+                <td class="col-3">お年玉</td>
+                <td class="col-2">20000</td>
+                <td class="col-2"></td>
+                <td class="col-3">
+                  <a href="./editForm.php" class="btn btn-success text-light">編集</a>
+                  <a href="./delete.php" class="btn btn-danger text-light">削除</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="col-2">2020/1/2</td>
+                <td class="col-3">昼ごはん</td>
+                <td class="col-2"></td>
+                <td class="col-2">1000</td>
+                <td class="col-3">
+                  <a href="./editForm.php" class="btn btn-success text-light">編集</a>
+                  <a href="./delete.php" class="btn btn-danger text-light">削除</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="col-2">2020/1/3</td>
+                <td class="col-3">昼ごはん</td>
+                <td class="col-2"></td>
+                <td class="col-2">1200</td>
+                <td class="col-3">
+                  <a href="./editForm.php" class="btn btn-success text-light">編集</a>
+                  <a href="./delete.php" class="btn btn-danger text-light">削除</a>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>

@@ -1,19 +1,3 @@
-<?php
-
-include_once('./functions.php');
-include_once('./dbconnect.php');
-
-$id = h($_GET['id']);
-
-$sql = "SELECT * FROM records WHERE id = :id";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':id', $id, PDO::PARAM_INT);
-
-$stmt->execute();
-
-$record = $stmt->fetch();
-
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -41,23 +25,23 @@ $record = $stmt->fetch();
       <p class="alert alert-success" role="alert">編集フォーム</p>
       <div class="form-group">
         <label for="date">日付</label>
-        <input type="date" class="form-control" id="date" name="date" value="<?= $record['date']; ?>">
+        <input type="date" class="form-control" id="date" name="date">
       </div>
       <div class="form-group">
         <label for="title">タイトル</label>
-        <input type="text" class="form-control" id="title" name="title" value="<?= $record['title']; ?>">
+        <input type="text" class="form-control" id="title" name="title">
       </div>
       <div class="form-group">
         <label for="amount">金額</label>
-        <input type="number" class="form-control" id="amount" name="amount" value="<?= $record['amount']; ?>">
+        <input type="number" class="form-control" id="amount" name="amount">
       </div>
       <div class="form-group">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="type" id="income" value="0" <?= $record['type'] == 0 ? 'checked': '' ?>>
+          <input class="form-check-input" type="radio" name="type" id="income">
           <label class="form-check-label" for="income">収入</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="type" id="spending" value="1" <?= $record['type'] == 1 ? 'checked': '' ?>>
+          <input class="form-check-input" type="radio" name="type" id="spending">
           <label class="form-check-label" for="spending">支出</label>
         </div>
       </div>
