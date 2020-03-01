@@ -59,8 +59,8 @@ $records = $stmt->fetchAll();
                 <tr>
                   <td class="col-2"><?= $record['date'] ?></td>
                   <td class="col-3"><?= $record['title'] ?></td>
-                  <td class="col-2"></td>
-                  <td class="col-2"><?= $record['amount'] ?></td>
+                  <td class="col-2"><?= $record['type'] == 0 ? $record['amount'] : ''; ?></td>
+                  <td class="col-2"><?= $record['type'] == 1 ? $record['amount'] : ''; ?></td>
                   <td class="col-3">
                     <a href="./editForm.php?id=<?= $record['id']; ?>" class="btn btn-success text-light">編集</a>
                     <a href="./delete.php?id=<?= $record['id']; ?>" class="btn btn-danger text-light">削除</a>
